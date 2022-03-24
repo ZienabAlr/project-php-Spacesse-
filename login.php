@@ -19,30 +19,33 @@ if (!empty($_POST)) {
   <title>Login Spacesse</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"> !-->
   <!-- CSS Files -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 <!--<?php //include_once(__DIR__ . "/includes/header.inc.php"); ?> !-->
-<img class="logo1" src="./images/buddy-logo.svg">
+
+<!-- Ik heb de img voorlopig in commentaar gezet "Zienab" -->
+<!-- <img class="logo1" src="./images/buddy-logo.svg"> -->
   <div class="container">
 
     <form class="form" method="post" action="">
 
-      <div class="header">
-        
-        <?php if (isset($error)) : ?>
-          <div class="form alert-danger">
-            <p>
-              Sorry, we can't log you in with that email address and password. Can you try again?
-            </p>
-          </div>
-        <?php endif; ?>
-        <h4>Login</h4>
+      <h4>Login</h4>
 
-      </div>
+        <!-- Error -->
+        <div class="header">
+        
+          <?php if (isset($error)) : ?>
+            <div class="form alert-danger">
+              <p>
+                Sorry, we can't log you in with that email address and password. Can you try again?
+              </p>
+            </div>
+          <?php endif; ?>
+
+        </div>
 
       <div class="login-body">
 
@@ -57,11 +60,13 @@ if (!empty($_POST)) {
       </div>
 
 
-      <input class="btn btn-primary" type="submit" value="Sign in" class="submit">
+      <input class="btn btn-primary" type="submit" value="Login" class="submit">
 
+      <a href="register.php">Not an account yet? Sign up here!</a>
+    
     </form>
 
-    <a href="register.php">Not an account yet? Sign up here!</a>
+    
 
   </div>
 </body>
