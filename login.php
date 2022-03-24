@@ -1,6 +1,6 @@
 <?php
-
-include_once(__DIR__ . "/classes/User.php");
+// include_once(__DIR__ . "/classes/User.php"); // Ik heb deze omgewissled met include_once("bootstarp.php"); ik heb een bootstrap.php map gemaakt en de DIR daar geplaatst zo maken we ons code korter!s (Zienab) 
+include_once("bootstarp.php"); // voor wat is die dir ? 
 
 if (!empty($_POST)) {
   //email en password opvragen
