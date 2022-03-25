@@ -108,11 +108,62 @@
 
                 return $this;
         }
+    
+
+    public function save()
+    {
+        //conn
+        $conn = Db::getConnection();
+        //insert query
+        $statement = $conn->prepare("insert into users(firstname,lastname,email,password) values (:firstname, :lastname, :email, :password)");
+        $firstname = $this->getFirstName();
+        $lastname = $this->getLastName();
+
+        $email = $this->getEmail();
+        $password = $this->getPassword();
+
+
+        $statement->bindParam(":firstname", $firstname);
+        $statement->bindParam(":lastname", $lastname);
+
+        $statement->bindParam(":email", $email);
+        $statement->bindParam(":password", $password);
+
+        $result = $statement->execute();
+        header('location: login.php');
+        // echo "ik ben hier aan het saven";
+        // var_dump($result);
+        return $result;
     }
 
+    public function endsWith($email, $endString)
+    {
+        $len = strlen($endString);
+        if (substr($email, -$len) === $endString) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    public function availableEmail($email)
+    {
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM users WHERE email = :email LIMIT 1");
+        $statement->bindParam(":email", $email);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-    function canLogin($email, $password)
+        if ($result == false) {
+            // Email available
+            return true;
+        } else {
+            // Email not available
+            return false;
+        }
+    }
+
+    public function canLogin($email, $password)
     {
         //db connectie
         $conn = Db::getConnection();
@@ -135,14 +186,14 @@
         }
     }
 
-    function doLogin($user)
+    public function doLogin($user)
     {
         session_start();
         $_SESSION['email'] = $user['email'];
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['firstname'] = $user['firstname'];
         // var_dump($user);
-        header('location: homepage.php'); // waar is homepage.php? 
+      //  header('location: homepage.php'); // waar is homepage.php? 
     }
-
+    }
 ?>
