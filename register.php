@@ -48,7 +48,7 @@ if (!empty($_POST)) {
 <body>
     <!--<?php // include_once(__DIR__ . "/includes/header.inc.php"); 
         ?> !-->
-    <img class="logo1" src="">
+    <img class="" src="">
 
     <div class="container">
         <form action="" method="post" class="form">
@@ -61,8 +61,8 @@ if (!empty($_POST)) {
                 <?php endif; ?>
                 <h4 id="create">Create an account</h2>
             </div>
-
-            <div class="form-group">
+                    <!--- placeholder: Een Placeholder is een tijdelijk type content dat later vervangen zal worden met de definitieve media, dit is dus enkel zichtbaar indien de officiele tekst nog niet beschikbaar is -charlotte --->
+            <div class="form-group"> <!--- er moet wel nog css geschreven worden maar dan bestaat de class al :) --->
                 <label for="email" class="label">Email</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                 <div id="emailCheck"></div>
@@ -88,7 +88,7 @@ if (!empty($_POST)) {
         </div>
     </div>
 
-    <script src="./js/app.js"></script>
+    
 </body>
 
 </html>

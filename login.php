@@ -1,6 +1,6 @@
 <?php
 // include_once(__DIR__ . "/classes/User.php"); // Ik heb deze omgewissled met include_once("bootstarp.php"); ik heb een bootstrap.php map gemaakt en de DIR daar geplaatst zo maken we ons code korter!s (Zienab) 
-include_once("bootstarp.php"); // voor wat is die dir ? 
+include_once("bootstrap.php"); // voor wat is die dir ? 
 
 if (!empty($_POST)) {
   //email en password opvragen
@@ -26,8 +26,7 @@ if (!empty($_POST)) {
 <body>
 <!--<?php //include_once(__DIR__ . "/includes/header.inc.php"); ?> !-->
 
-<!-- Ik heb de img voorlopig in commentaar gezet "Zienab" -->
-<!-- <img class="logo1" src="./images/buddy-logo.svg"> -->
+
   <div class="container">
 
     <form class="form" method="post" action="">
@@ -38,7 +37,7 @@ if (!empty($_POST)) {
         <div class="header">
         
           <?php if (isset($error)) : ?>
-            <div class="form alert-danger">
+            <div>
               <p>
                 Sorry, we can't log you in with that email address and password. Can you try again?
               </p>
@@ -47,20 +46,20 @@ if (!empty($_POST)) {
 
         </div>
 
-      <div class="login-body">
+      <div>
 
         <div class="form-group">
-          <input type="text" name="email" id="email" class="form-control" placeholder="Email...">
+          <input type="text" name="email" id="email" class="form-control" placeholder="Email..."> <!--- placeholder: Een Placeholder is een tijdelijk type content dat later vervangen zal worden met de definitieve media, dit is dus enkel zichtbaar indien de officiele tekst nog niet beschikbaar is -charlotte --->
         </div>
 
         <div class="form-group">
-          <input type="password" id="password" name="password" class="form-control" placeholder="Password...">
+          <input type="password" id="password" name="password" placeholder="Password...">
         </div>
 
       </div>
 
 
-      <input class="btn btn-primary" type="submit" value="Login" class="submit">
+      <input class="" type="submit" value="Login" class="submit">
 
       <a href="register.php">Not an account yet? Sign up here!</a>
     

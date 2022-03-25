@@ -131,14 +131,13 @@
 
         $result = $statement->execute();
         header('location: login.php');
-        // echo "ik ben hier aan het saven";
-        // var_dump($result);
+        
         return $result;
     }
 
     public function endsWith($email, $endString)
     {
-        $len = strlen($endString);
+        $len = strlen($endString); 
         if (substr($email, -$len) === $endString) {
             return true;
         } else {
@@ -170,7 +169,7 @@
 
         //email zoeken in db
         $statement = $conn->prepare('select * from users where email = :email');
-        $statement->bindParam(':email', $email); // wat is bindParam? 
+        $statement->bindParam(':email', $email); // bindParam: https://www.php.net/manual/en/pdostatement.bindparam.php (als je het niet snapt zal ik het via call eens proberen uitleggen) -charl
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -192,8 +191,7 @@
         $_SESSION['email'] = $user['email'];
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['firstname'] = $user['firstname'];
-        // var_dump($user);
-      //  header('location: homepage.php'); // waar is homepage.php? 
+        
     }
     }
 ?>
