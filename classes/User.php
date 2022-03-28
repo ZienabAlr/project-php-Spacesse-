@@ -1,6 +1,6 @@
 <?php
     class User{
-        private $id;
+        private $id; //wat is id ? 
         private $firstname;
         private $lastname;
         private $email;
@@ -119,7 +119,7 @@
 
         //email zoeken in db
         $statement = $conn->prepare('select * from users where email = :email');
-        $statement->bindParam(':email', $email);
+        $statement->bindParam(':email', $email); // wat is bindParam
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
