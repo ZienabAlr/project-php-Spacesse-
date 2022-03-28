@@ -1,6 +1,6 @@
 <?php
 
-echo "FIFI 👎🏻";
+echo "Faheer 👎🏻";
 
 ?>
 <!DOCTYPE html>
