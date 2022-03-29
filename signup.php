@@ -37,7 +37,7 @@ fclose($file);
 <body>
     <div id="signupForm">
         <div class="wrapper">
-            <form action="login.php" class="form">
+            <form action="signup.php" class="form">
 
                 <h1 class="title">Sign up</h1>
 
