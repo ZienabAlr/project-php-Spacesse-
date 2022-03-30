@@ -50,7 +50,7 @@ if (!empty($_POST)) {
 <body>
     <div id="signupForm">
         <div class="wrapper">
-            <form action="" class="form">
+            <form action="" class="form" method="$_POST">
                 <h1 class="title">Sign up</h1>
                 <?php if (isset($error)) : ?>
                     <div class="form__error">
