@@ -20,7 +20,6 @@ if (!empty($_POST)) {
         'cost' => 12,
     ];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
-
     try {
         $conn = new PDO('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
 
