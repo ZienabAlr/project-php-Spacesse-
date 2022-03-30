@@ -103,3 +103,7 @@ body {
 .input:focus {
   border: 2px solid purple;
 }
+
+#noAccount h4{
+  text-align: center;
+}
