@@ -8,7 +8,7 @@ $pattern = "/^[a-z0-9._%+-]+@[a-z0-9.-]*(" . implode('|', $domains) . ")$/i";
 
 if (preg_match($pattern, $email)) {
     echo '<script>
-           window.location = "http://localhost:8888/project-php-Spacesse-/login.php"
+           window.location = "http://localhost:8888/project-php-Spacesse-/signup.php"
       </script>';
 } else {
     echo 'This is not a valid Company email address. Please go back and try again.';
