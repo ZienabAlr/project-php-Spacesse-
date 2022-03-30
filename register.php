@@ -29,7 +29,6 @@ if (!empty($_POST)) {
     }
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -61,8 +60,9 @@ if (!empty($_POST)) {
                 <?php endif; ?>
                 <h4 id="create">Create an account</h2>
             </div>
-                    <!--- placeholder: Een Placeholder is een tijdelijk type content dat later vervangen zal worden met de definitieve media, dit is dus enkel zichtbaar indien de officiele tekst nog niet beschikbaar is -charlotte --->
-            <div class="form-group"> <!--- er moet wel nog css geschreven worden maar dan bestaat de class al :) --->
+            <!--- placeholder: Een Placeholder is een tijdelijk type content dat later vervangen zal worden met de definitieve media, dit is dus enkel zichtbaar indien de officiele tekst nog niet beschikbaar is -charlotte --->
+            <div class="form-group">
+                <!--- er moet wel nog css geschreven worden maar dan bestaat de class al :) --->
                 <label for="email" class="label">Email</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                 <div id="emailCheck"></div>
@@ -88,7 +88,7 @@ if (!empty($_POST)) {
         </div>
     </div>
 
-    
+
 </body>
 
 </html>
