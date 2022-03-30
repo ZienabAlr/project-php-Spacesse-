@@ -1,11 +1,12 @@
 <?php
 
-$email = "TestEmail@student.thomasmore.be" && "TestEmail@thomasmore.be";
+//  && "TestEmail@thomasmore.be"
+$email = "TestEmail@student.thomasmore.be";
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     die("Not a valid e-mail address!");
 } else {
-    if (empty(preg_match("/@student.thomasmore.be$/" && "/@thomasmore.be$/", $email))) {
-        die("E-mail must end with @student.thomasmore.be OR @thomasmore.be!");
+    if (empty(preg_match("/@student.thomasmore.be$/", $email))) {
+        die("E-mail must end with @student.thomasmore.be!");
     } else {
         //valid//
     }
@@ -74,12 +75,12 @@ if (!empty($_POST)) {
                 </div>
 
                 <div id="inputContainer">
-                    <input type="text" class="input" name="password" placeholder="a">
+                    <input type="password" class="input" name="password" placeholder="a">
                     <label for="" class="label">Password</label>
                 </div>
 
                 <div id="inputContainer">
-                    <input type="text" class="input" placeholder="a">
+                    <input type="password" class="input" placeholder="a">
                     <label for="" class="label">Confirm Password</label>
                 </div>
                 <div id="inputContainer">
