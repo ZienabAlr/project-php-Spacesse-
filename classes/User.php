@@ -1,9 +1,9 @@
 <?php
 class User
 {
-        private $id; //wat is id ? 
-        private $email;
+        private $id; //wat is id ????
         private $username;
+        private $email;
         private $password;
 
         /**
@@ -28,7 +28,7 @@ class User
 
 
         /**
-         * Get the value of firstname
+         * Get the value of username
          */
         public function getUsername()
         {
@@ -106,7 +106,7 @@ function canLogin($email, $password)
 
         //email zoeken in db
         $statement = $conn->prepare('select * from users where email = :email');
-        $statement->bindParam(':email', $email); // wat is bindParam
+        $statement->bindParam(':email', $email); // wat is bindParam???
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 

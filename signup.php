@@ -16,9 +16,8 @@ function validateEmail($email)
 }
 
 if (!empty($_POST)) {
-
+    $username = $_POST['username'];
     $email = $_POST['email'];
-    $firstname = $_POST['username'];
     $options = [
         'cost' => 12,
     ];
@@ -37,9 +36,9 @@ if (!empty($_POST)) {
     try {
         $conn = new PDO('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
 
-        $statemant = $conn->prepare("INSERT INTO userSignup (email, username, password) VALUES (:email, :firstname, :lastname, :password)");
-        $statemant->bindValue("email", $email);
+        $statemant = $conn->prepare("INSERT INTO userSignup (username, email, password) VALUES (:username, :email, :password)");
         $statemant->bindValue("username", $username);
+        $statemant->bindValue("email", $email);
         $statemant->bindValue("password", $password);
         $result = $statemant->execute();
     } catch (Throwable $e) {
@@ -72,13 +71,13 @@ if (!empty($_POST)) {
                     </div>
                 <?php endif; ?>
                 <div id="inputContainer">
-                    <input type="text" class="input" name="email" placeholder="a">
-                    <label for="" class="label">Email</label>
+                    <input type="text" class="input" name="username" placeholder="a">
+                    <label for="" class="label">username</label>
                 </div>
 
                 <div id="inputContainer">
-                    <input type="text" class="input" name="username" placeholder="a">
-                    <label for="" class="label">username</label>
+                    <input type="text" class="input" name="email" placeholder="a">
+                    <label for="" class="label">Email</label>
                 </div>
 
                 <div id="inputContainer">
