@@ -3,8 +3,7 @@ class User
 {
         private $id; //wat is id ? 
         private $email;
-        private $firstname;
-        private $lastname;
+        private $username;
         private $password;
 
         /**
@@ -31,49 +30,25 @@ class User
         /**
          * Get the value of firstname
          */
-        public function getFirstname()
+        public function getUsername()
         {
-                return $this->firstname;
+                return $this->username;
         }
 
         /**
-         * Set the value of firstname
+         * Set the value of username
          *
          * @return  self
          */
-        public function setFirstname($firstname)
+        public function setUsername($username)
         {
-                if (empty($firstname)) {
+                if (empty($username)) {
                         throw new Exception("Firstname cannot be empty.");
                 }
-                $this->firstname = $firstname;
+                $this->username = $username;
                 return $this;
         }
 
-
-
-
-        /**
-         * Get the value of lastname
-         */
-        public function getLastname()
-        {
-                return $this->lastname;
-        }
-
-        /**
-         * Set the value of lastname
-         *
-         * @return  self
-         */
-        public function setLastname($lastname)
-        {
-                if (empty($lastname)) {
-                        throw new Exception("Lastname cannot be empty.");
-                }
-                $this->lastname = $lastname;
-                return $this;
-        }
 
 
         /**

@@ -1,34 +1,45 @@
 <?php
 
-//  && "TestEmail@thomasmore.be"
-$email = "TestEmail@student.thomasmore.be";
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die("Not a valid e-mail address!");
-} else {
-    if (empty(preg_match("/@student.thomasmore.be$/", $email))) {
-        die("E-mail must end with @student.thomasmore.be!");
+
+function validateEmail($email)
+{
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
     } else {
-        //valid//
+        if (empty(preg_match("/@student.thomasmore.be|thomasmore.be$/", $email))) {
+            return false;
+        } else {
+            //valid//
+            return true;
+        }
     }
 }
 
 if (!empty($_POST)) {
 
     $email = $_POST['email'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $firstname = $_POST['username'];
     $options = [
         'cost' => 12,
     ];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
+    if (validateEmail($email)) {
+        // email is good => logic
+    } else {
+        $error = "Email is not valid";
+    }
 
+    if (empty($username)) {
+        $error = "Empty username!";
+    }
+
+    // validatePassword => See validateEmail
     try {
         $conn = new PDO('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
 
-        $statemant = $conn->prepare("INSERT INTO userSignup (email, firstname, lastname, password) VALUES (:email, :firstname, :lastname, :password)");
+        $statemant = $conn->prepare("INSERT INTO userSignup (email, username, password) VALUES (:email, :firstname, :lastname, :password)");
         $statemant->bindValue("email", $email);
-        $statemant->bindValue("firstname", $firstname);
-        $statemant->bindValue("lastname", $lastname);
+        $statemant->bindValue("username", $username);
         $statemant->bindValue("password", $password);
         $result = $statemant->execute();
     } catch (Throwable $e) {
@@ -51,12 +62,12 @@ if (!empty($_POST)) {
 <body>
     <div id="signupForm">
         <div class="wrapper">
-            <form action="" class="form" method="$_POST">
+            <form action="" class="form" method="post">
                 <h1 class="title">Sign up</h1>
                 <?php if (isset($error)) : ?>
-                    <div class="form__error">
+                    <div class="warning">
                         <p>
-                            Sorry, we can't Sign you up with that email address and password. Can you try again?
+                            <?php echo $error ?>
                         </p>
                     </div>
                 <?php endif; ?>
@@ -66,12 +77,8 @@ if (!empty($_POST)) {
                 </div>
 
                 <div id="inputContainer">
-                    <input type="text" class="input" name="firstname" placeholder="a">
-                    <label for="" class="label">Firstname</label>
-                </div>
-                <div id="inputContainer">
-                    <input type="text" class="input" name="lastname" placeholder="a">
-                    <label for="" class="label">Lastname</label>
+                    <input type="text" class="input" name="username" placeholder="a">
+                    <label for="" class="label">username</label>
                 </div>
 
                 <div id="inputContainer">
