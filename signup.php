@@ -22,15 +22,18 @@ if (!empty($_POST)) {
         'cost' => 12,
     ];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
+    if (empty($username)) {
+        $error = "Empty username!";
+    }
     if (validateEmail($email)) {
         // email is good => logic
     } else {
         $error = "Email is not valid";
     }
-
-    if (empty($username)) {
-        $error = "Empty username!";
+    if (empty($password)) {
+        $error = "Empty password!";
     }
+
 
     // validatePassword => See validateEmail
     try {
@@ -85,10 +88,7 @@ if (!empty($_POST)) {
                     <label for="" class="label">Password</label>
                 </div>
 
-                <div id="inputContainer">
-                    <input type="password" class="input" placeholder="a">
-                    <label for="" class="label">Confirm Password</label>
-                </div>
+
                 <div id="inputContainer">
                     <h4>Already have an account?
                         <a href="#" class="login">Click here</a></h4>
