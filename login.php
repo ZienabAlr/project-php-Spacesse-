@@ -118,9 +118,9 @@ if (!empty($_POST)) {
                 <input type="submit" id="submitBtn" value="Login">
 
                 <div id= "noAccount">
-                  <h4>Don't have an account?</h4>
+                  <h4>Don't have an account? <a href="signup.php">Sign up</a></h4>
 
-                  <input type="submit" id="submitBtn" value="Signup">
+                  <!-- <input type="submit" id="submitBtn" value="Signup"> -->
                 </div>
             </form>
         </div>

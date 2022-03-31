@@ -1,15 +1,21 @@
 <?php
     class User{
-        private $id; //wat is id ? 
-        private $firstname;
+        // private $id; //wat is id ? 
+        /*private $firstname;
         private $lastname;
         private $email;
-        private $password;
+        private $password;*/
+
+        protected $firstname;
+        protected $lastname;
+        protected $email;
+        protected $password;
+
 
         /**
          * Get the value of id
          */ 
-        public function getId()
+        /*public function getId()
         {
                 return $this->id;
         }
@@ -19,12 +25,12 @@
          *
          * @return  self
          */ 
-        public function setId($id)
+        /*public function setId($id)
         {
                 $this->id = $id;
 
                 return $this;
-        }
+        }*/
 
         
         /**
@@ -112,7 +118,7 @@
 
 
 
-    function canLogin($email, $password)
+    /*function canLogin($email, $password)
     {
         //db connectie
         $conn = Db::getConnection();
@@ -143,6 +149,6 @@
         $_SESSION['firstname'] = $user['firstname'];
         // var_dump($user);
         header('location: homepage.php');
-    }
+    }*/
 
 ?>
