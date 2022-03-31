@@ -42,9 +42,9 @@ class User
          */
         public function setUsername($username)
         {
-                if (empty($username)) {
+                /*if (empty($username)) {
                         throw new Exception("Firstname cannot be empty.");
-                }
+                }*/
                 $this->username = $username;
                 return $this;
         }
@@ -66,9 +66,9 @@ class User
          */
         public function setEmail($email)
         {
-                if (empty($email)) {
+                /* if (empty($email)) {
                         throw new Exception("Email cannot be empty.");
-                }
+                }*/
                 $this->email = $email;
                 return $this;
         }
@@ -89,9 +89,9 @@ class User
          */
         public function setPassword($password)
         {
-                if (empty($password)) {
+                /* if (empty($password)) {
                         throw new Exception("Password cannot be empty.");
-                }
+                }*/
                 $this->password = $password;
                 return $this;
         }
