@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
     class User{
         // private $id; //wat is id ? 
         /*private $firstname;
@@ -17,7 +16,6 @@
          * Get the value of id
          */ 
         /*public function getId()
-=======
 class User
 {
         private $id; //wat is id ? 
@@ -30,7 +28,6 @@ class User
          * Get the value of id
          */
         public function getId()
->>>>>>> 18fe168648bbdfad1f484fc87515f6f1dd1601bf
         {
                 return $this->id;
         }
@@ -39,13 +36,10 @@ class User
          * Set the value of id
          *
          * @return  self
-<<<<<<< HEAD
          */ 
         /*public function setId($id)
-=======
          */
         public function setId($id)
->>>>>>> 18fe168648bbdfad1f484fc87515f6f1dd1601bf
         {
                 $this->id = $id;
 
@@ -149,13 +143,10 @@ class User
 
 
 
-<<<<<<< HEAD
     /*function canLogin($email, $password)
     {
-=======
 function canLogin($email, $password)
 {
->>>>>>> 18fe168648bbdfad1f484fc87515f6f1dd1601bf
         //db connectie
         $conn = Db::getConnection();
 
@@ -185,10 +176,7 @@ function doLogin($user)
         $_SESSION['firstname'] = $user['firstname'];
         // var_dump($user);
         header('location: homepage.php');
-<<<<<<< HEAD
     }*/
 
 ?>
-=======
 }
->>>>>>> 18fe168648bbdfad1f484fc87515f6f1dd1601bf
