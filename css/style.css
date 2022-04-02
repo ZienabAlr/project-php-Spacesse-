@@ -35,8 +35,14 @@ body {
   margin-bottom: 17px;
 }
 
+
 .warning p {
   color: red;
+}
+
+
+#inputContainer .login{
+  text-align: right;
 }
 
 .input {
@@ -105,4 +111,8 @@ body {
 
 .input:focus {
   border: 2px solid purple;
+}
+
+#noAccount h4{
+  text-align: center;
 }
