@@ -75,7 +75,7 @@ if (!empty($_POST)) {
                 <?php endif; ?>
                 <div id="inputContainer">
                     <input type="text" class="input" name="username" placeholder="a">
-                    <label for="" class="label">username</label>
+                    <label for="" class="label">Username</label>
                 </div>
 
                 <div id="inputContainer">
