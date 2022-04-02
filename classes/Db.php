@@ -9,7 +9,7 @@
         
 
         public static function getConnection() {
-            if(self::$conn != null) {
+           if(self::$conn != null) {
                 // REUSE our connection
                 //echo "🚀";
                 return self::$conn;
@@ -18,13 +18,15 @@
                 // CREATE a new connection
 
                 // get the configuration for our connection from one central settings file
-                $config = self::getConfig();
+               /* $config = self::getConfig();
                 $database = $config['database'];
                 $user = $config['user'];
-                $password = $config['password'];
+                $password = $config['password'];*/
 
                 //echo "💥";
-                self::$conn = new PDO('mysql:host=127.0.0.1;dbname='.$database.';charset=utf8mb4', $user, $password);
+
+                self::$conn = new PDO('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
+                //self::$conn = new PDO('mysql:host=127.0.0.1;dbname='.$database.';charset=utf8mb4', $user, $password);
                 return self::$conn;
             }
         }
