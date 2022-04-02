@@ -4,9 +4,15 @@ include_once("bootstrap.php");
 
 if (!empty($_POST)) {
   //email en password opvragen
-  $email = htmlspecialchars($_POST['email']);
+  /*$email = htmlspecialchars($_POST['email']);
   $password = $_POST['password'];
-  $user = $_POST['user'];
+  $user = $_POST['user'];*/
+
+  try {
+    $user = new Student;
+    $user->setEmail($_POST['email']);
+    
+  }
 }
 ?>
 <!-- <!DOCTYPE html>
