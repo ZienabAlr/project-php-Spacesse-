@@ -8,11 +8,11 @@ if (!empty($_POST)) {
   $password = $_POST['password'];
   $user = $_POST['user'];*/
 
-  try {
+  /*try {
     $user = new Student;
     $user->setEmail($_POST['email']);
     
-  }
+  }*/
 }
 ?>
 <!-- <!DOCTYPE html>
