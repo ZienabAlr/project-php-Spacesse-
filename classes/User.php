@@ -1,6 +1,6 @@
 <?php
     class User{
-        // private $id; //wat is id ? 
+        
         /*private $firstname;
         private $lastname;
         private $email;
@@ -44,7 +44,7 @@ class User
                 $this->id = $id;
 
                 return $this;
-        }*/
+        }
 
 
         /**
