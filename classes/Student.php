@@ -10,7 +10,6 @@ class Student extends User{
         $statement->execute();
         // return $statement->fetchAll(PDO::FETCH_ASSOC);
         $user= $statement->fetchAll(PDO::FETCH_ASSOC);
-        
         return $user; 
         /* $hash= $passWord['password'];
 
