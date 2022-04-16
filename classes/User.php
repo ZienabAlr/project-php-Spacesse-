@@ -6,8 +6,8 @@
         private $email;
         private $password;*/
 
-        protected $firstname;
-        protected $lastname;
+        // protected $firstname;
+        protected $username;
         protected $email;
         protected $password;
 
