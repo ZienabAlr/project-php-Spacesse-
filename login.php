@@ -1,9 +1,12 @@
 <?php
 // include_once(__DIR__ . "/classes/User.php"); // Ik heb deze omgewissled met include_once("bootstarp.php"); ik heb een bootstrap.php map gemaakt en de DIR daar geplaatst zo maken we ons code korter!s (Zienab) 
+session_start();
+
 include_once("bootstrap.php");
 
+$user= new Student ();  
+
 if (!empty($_POST)) {
- $user= new Student ();  
  $user->setFirstname($_POST['email']);
  $user->setLastname($_POST['password']);
  $user::inlogedStudents();

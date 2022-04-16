@@ -9,14 +9,16 @@ class Student extends User{
         $statement->bindValue("email", $this->email);
         $statement->execute();
         // return $statement->fetchAll(PDO::FETCH_ASSOC);
-        $passWord= $statement->fetchAll(PDO::FETCH_ASSOC);
-        $hash= $passWord['password'];
+        $user= $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $user; 
+        /* $hash= $passWord['password'];
 
 		if(password_verify($password, $hash) ){
 			return true; 
 		}else{
 			return false;
-		}
+		}*/
        
     }
     
