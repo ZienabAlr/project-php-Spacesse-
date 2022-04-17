@@ -3,6 +3,7 @@
 include_once("bootstrap.php");
 
 if (!empty($_POST)) {
+  
   //email en password opvragen
   /*$email = htmlspecialchars($_POST['email']);
   $password = $_POST['password'];
