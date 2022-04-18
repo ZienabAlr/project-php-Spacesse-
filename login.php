@@ -4,11 +4,6 @@ session_start();
 include_once("bootstrap.php");
 
 if (!empty($_POST)) {
-  
-  //email en password opvragen
-  /*$email = htmlspecialchars($_POST['email']);
-  $password = $_POST['password'];
-  $user = $_POST['user'];*/
 $user= new Student ();  
 
 if (!empty($_POST)) {
@@ -66,7 +61,7 @@ if (!empty($_POST)) {
 
                 <div id="inputContainer">
                     <!-- <h4>Already have an account? -->
-                        <a href="#" class="login">Forgot your password?</a></h4>
+                        <a href="reset-password.php" class="login">Forgot your password?</a></h4>
                 </div>
 
 
