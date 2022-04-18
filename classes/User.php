@@ -85,9 +85,9 @@ class User
          */
         public function setEmail($email)
         {
-                /* if (empty($email)) {
+                if (empty($email)) {
                         throw new Exception("Email cannot be empty.");
-                }*/
+                
                 $this->email = $email;
                 return $this;
         }
@@ -114,6 +114,15 @@ class User
                 $this->password = $password;
                 return $this;
         }
+
+       /* function passwordHash(){
+                if(!empty($_POST)){
+                                $options=[
+                                    'cost'=> 12,  
+                                 ];
+                                $password= password_hash($_POST['password'], PASSWORD_DEFAULT,$options); 
+                }
+        }*/
 }
 
 
