@@ -11,14 +11,14 @@ if (!empty($_POST)) {
  $user->setLastname($_POST['password']);
  $auth =  $user::inlogedStudents();
  
-  if(!$auth){
-    $error
-  }
-  else{
+  // if(!$auth){
+    // $error
+  // }
+  // else{
     $_SESSION['user'] = $auth;
     header('location:index.php');
     die ();
-  }
+  // }
 }
  
 }
