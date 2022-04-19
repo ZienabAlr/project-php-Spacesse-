@@ -68,17 +68,20 @@ if (!empty($_POST)) {
 </head>
 
 <body>
+    <?php if (isset($error)) : ?>
+        <div><?php echo $error; ?></div>
+    <?php endif; ?>
     <div id="signupForm">
         <div class="wrapper">
             <form action="#" class="form" method="post">
                 <h1 class="title">Sign up</h1>
-                <?php if (isset($error)) : ?>
+                <!--<?php /*if (isset($error)) : ?>
                     <div class="warning">
                         <p>
                             <?php echo $error ?>
                         </p>
                     </div>
-                <?php endif; ?>
+                <?php endif;*/ ?>-->
                 <div id="inputContainer">
                     <input type="text" class="input" name="username" placeholder="a">
                     <label for="" class="label">Username</label>
