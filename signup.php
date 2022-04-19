@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     ];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
 
-    if (empty($username)) {
+    /*if (empty($username)) {
         $error = "Empty username!";
     }
     if (validateEmail($email)) {
@@ -33,6 +33,10 @@ if (!empty($_POST)) {
     }
     if (empty($password)) {
         $error = "Empty password!";
+    }*/
+    function error_class(array $errors, string $email): string
+    {
+        return isset($errors[$email]) ? 'error' : '';
     }
 
 
