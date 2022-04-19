@@ -70,7 +70,7 @@ if (!empty($_POST)) {
 <body>
     <div id="signupForm">
         <div class="wrapper">
-            <form action="profile.php" class="form" method="post">
+            <form action="#" class="form" method="post">
                 <h1 class="title">Sign up</h1>
                 <?php if (isset($error)) : ?>
                     <div class="warning">
