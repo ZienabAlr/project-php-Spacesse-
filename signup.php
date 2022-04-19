@@ -1,12 +1,14 @@
 <?php
 
 
+// validate email
+
 function validateEmail($email)
 {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
     } else {
-        if (empty(preg_match("/@student.thomasmore.be|thomasmore.be$/", $email))) {
+        if (empty(preg_match("/@student.thomasmore.be|@thomasmore.be$/", $email))) {
             return false;
         } else {
             //valid//
@@ -54,6 +56,20 @@ if (!empty($_POST)) {
 
         echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
     }
+
+    /*if (isset($_POST["submit"])) {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if (empty($username))
+            $error = "Please enter your username";
+        if (empty($email))
+            $error = "Please enter your email";
+        if (empty($password))
+            $error = "Please enter your password";
+        return $error;
+    }*/
 }
 ?>
 <!DOCTYPE html>
@@ -68,20 +84,19 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-    <?php if (isset($error)) : ?>
-        gi <div><?php echo $error; ?></div>
-    <?php endif; ?>
+
     <div id="signupForm">
         <div class="wrapper">
             <form action="" class="form" method="post">
                 <h1 class="title">Sign up</h1>
-                <!--<?php /*if (isset($error)) : ?>
+                <!-- <?php /*if (isset($error)) : ?>
                     <div class="warning">
                         <p>
                             <?php echo $error ?>
                         </p>
                     </div>
                 <?php endif;*/ ?>-->
+
                 <div id="inputContainer">
                     <input type="text" class="input" name="username" placeholder="a">
                     <label for="" class="label">Username</label>
