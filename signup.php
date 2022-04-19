@@ -33,11 +33,11 @@ if (!empty($_POST)) {
     }
     if (empty($password)) {
         $error = "Empty password!";
-    }*/
+    }
     function error_class(array $errors, string $email): string
     {
         return isset($errors[$email]) ? 'error' : '';
-    }
+    }*/
 
 
     // validatePassword => See validateEmail
@@ -69,11 +69,11 @@ if (!empty($_POST)) {
 
 <body>
     <?php if (isset($error)) : ?>
-        <div><?php echo $error; ?></div>
+        gi <div><?php echo $error; ?></div>
     <?php endif; ?>
     <div id="signupForm">
         <div class="wrapper">
-            <form action="#" class="form" method="post">
+            <form action="" class="form" method="post">
                 <h1 class="title">Sign up</h1>
                 <!--<?php /*if (isset($error)) : ?>
                     <div class="warning">
