@@ -50,6 +50,17 @@ if (!empty($_POST)) {
 
         echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
     }*/
+    try {
+        $conn = DB::getConnection();
+        $statemant = $conn->prepare("INSERT INTO userSignup (username, email, password) VALUES (:username, :email, :password)");
+        $statemant->bindValue("username", $this->username);
+        $statemant->bindValue("email", $this->email);
+        $statemant->bindValue("password", $this->password);
+        return $statemant->execute();
+    } catch (Throwable $e) {
+
+        echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
+    }
 }
 ?>
 <!DOCTYPE html>
