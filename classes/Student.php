@@ -20,7 +20,7 @@ class Student extends User{
         
                 echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
             }
-        }
+    }
        
         public static function inlogedStudents(){
             
@@ -48,6 +48,6 @@ class Student extends User{
              }
 
         }
-    }
+    
     
 }
