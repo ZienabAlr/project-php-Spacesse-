@@ -2,7 +2,7 @@
 
 class Student extends User{
 
-    public static function can_signup(){
+    /*public static function can_signup(){
         
         
         
@@ -20,7 +20,7 @@ class Student extends User{
         
                 echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
             }
-    }
+    }*/
        
         public static function inlogedStudents(){
             
