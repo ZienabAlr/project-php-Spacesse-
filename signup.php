@@ -1,19 +1,6 @@
 <?php
 
 
-function validateEmail($email)
-{
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return false;
-    } else {
-        if (empty(preg_match("/@student.thomasmore.be|thomasmore.be$/", $email))) {
-            return false;
-        } else {
-            //valid//
-            return true;
-        }
-    }
-}
 
 if (!empty($_POST)) {
     $username = $_POST['username'];
@@ -23,17 +10,25 @@ if (!empty($_POST)) {
     ];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
 
-    /*if (empty($username)) {
-        $error = "Empty username!";
-    }*/
+    function validateEmail($email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        } else {
+            if (empty(preg_match("/@student.thomasmore.be|thomasmore.be$/", $email))) {
+                return false;
+            } else {
+                //valid//
+                return true;
+            }
+        }
+    }
     if (validateEmail($email)) {
         // email is good => logic
     } else {
         $error = "Email is not valid";
     }
-    /*if (empty($password)) {
-        $error = "Empty password!";
-    }*/
+
 
 
     // validatePassword => See validateEmail
