@@ -38,7 +38,7 @@ if (!empty($_POST)) {
 
     // validatePassword => See validateEmail
 
-    /*try {
+    try {
         $conn = new PDO('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
 
         $statemant = $conn->prepare("INSERT INTO userSignup (username, email, password) VALUES (:username, :email, :password)");
@@ -49,7 +49,7 @@ if (!empty($_POST)) {
     } catch (Throwable $e) {
 
         echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
-    }*/
+    }
     try {
         $conn = DB::getConnection();
         $statemant = $conn->prepare("INSERT INTO userSignup (username, email, password) VALUES (:username, :email, :password)");
