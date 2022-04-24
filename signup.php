@@ -23,17 +23,17 @@ if (!empty($_POST)) {
     ];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
 
-    if (empty($username)) {
+    /*if (empty($username)) {
         $error = "Empty username!";
-    }
+    }*/
     if (validateEmail($email)) {
         // email is good => logic
     } else {
         $error = "Email is not valid";
     }
-    if (empty($password)) {
+    /*if (empty($password)) {
         $error = "Empty password!";
-    }
+    }*/
 
 
     // validatePassword => See validateEmail
