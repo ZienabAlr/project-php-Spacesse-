@@ -5,22 +5,22 @@ class Student extends User
 
 
 
-    public function can_signup()
+    public function can_signup($username, $email, $password)
     {
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=OOP", "root", "root");
-            $statement = $conn->prepare("INSERT INTO test (username, email, password) VALUES (:username, :email, :password)");
-            $statement->bindValue("username", $this->username);
-            $statement->bindValue("email", $this->email);
+            $conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
+            $statement = $conn->prepare("INSERT INTO user (username, email, password) VALUES (:username, :email, :password)");
+            $statement->bindValue("username", $username);
+            $statement->bindValue("email", $email);
             $options = [
                 'cost' => 12,
             ];
-            $hash = password_hash($this->password, PASSWORD_DEFAULT,  $options);
+            $hash = password_hash($password, PASSWORD_DEFAULT,  $options);
             $statement->bindValue("password", $hash);
             return  $statement->execute();
         } catch (Throwable $e) {
 
-            echo $e->getMessage('mysql:host=localhost;dbname=OOP', 'root', 'root');
+            echo $e->getMessage();
         }
     }
 
