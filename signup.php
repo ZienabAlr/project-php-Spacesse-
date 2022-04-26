@@ -1,77 +1,51 @@
 <?php
 
+include_once("bootstrap.php");
+
+function validateEmail($email)
+{
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    } else {
+        if (empty(preg_match("/@student.thomasmore.be|thomasmore.be$/", $email))) {
+            return false;
+        } else {
+            //valid//
+            return true;
+        }
+    }
+}
+
 
 
 if (!empty($_POST)) {
+    if (validateEmail($_POST["email"])) {
+        try {
 
-    try{
-        $user = new User();
+            $user = new Student();
+            $user->setUsername($_POST["username"]);
+            $user->setEmail($_POST["email"]);
+            $user->setPassword($_POST["password"]);
+
+            $user->can_signup($_POST["username"], $_POST["email"], $_POST["password"]);
 
 
-        if (!isset($error)) {
-            $user = new User()
-            $user->setUsername($_POST['username']);
-            $user->setEmail($_POST['email']);
-            $user->setPassword($_POST['password']);
-            
+            session_start();
+            $_SESSION['user'] = $_POST["email"];
+            header('location:index.php');
+            die();
+        } catch (Throwable $e) {
+            // echo $e->getMessage('mysql:host=localhost;dbname=test', 'root', 'root');
+            //echo $e->getMessage();
+            //return false;
+            $error = $e->getMessage();
         }
-    } catch (Throwable $e) {
-        $error = $e->getMessage();
-    }
-    }
-   
-    $options = [
-        'cost' => 12,
-    ];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
-
-    function validateEmail($email)
-    {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return false;
-        } else {
-            if (empty(preg_match("/@student.thomasmore.be|thomasmore.be$/", $email))) {
-                return false;
-            } else {
-                //valid//
-                return true;
-            }
-        }
-    }
-    if (validateEmail($email)) {
-        // email is good => logic
     } else {
         $error = "Email is not valid";
     }
-
-
-
-    // validatePassword => See validateEmail
-
-    try {
-        $conn = new PDO('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
-
-        $statemant = $conn->prepare("INSERT INTO userSignup (username, email, password) VALUES (:username, :email, :password)");
-        $statemant->bindValue("username", $username);
-        $statemant->bindValue("email", $email);
-        $statemant->bindValue("password", $password);
-        $result = $statemant->execute();
-    } catch (Throwable $e) {
-
-        echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
-    }
-    try {
-        $conn = DB::getConnection();
-        $statemant = $conn->prepare("INSERT INTO userSignup (username, email, password) VALUES (:username, :email, :password)");
-        $statemant->bindValue("username", $this->username);
-        $statemant->bindValue("email", $this->email);
-        $statemant->bindValue("password", $this->password);
-        return $statemant->execute();
-    } catch (Throwable $e) {
-
-        echo $e->getMessage('mysql:host=localhost;dbname=Spacesse', 'root', 'root');
-    }
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +61,7 @@ if (!empty($_POST)) {
 <body>
     <div id="signupForm">
         <div class="wrapper">
-            <form action="profile.php" class="form" method="post">
+            <form action="" method="post" class="form">
                 <h1 class="title">Sign up</h1>
                 <?php if (isset($error)) : ?>
                     <div class="warning">
