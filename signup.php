@@ -3,8 +3,23 @@
 
 
 if (!empty($_POST)) {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
+
+    try{
+        $user = new User();
+
+
+        if (!isset($error)) {
+            $user = new User()
+            $user->setUsername($_POST['username']);
+            $user->setEmail($_POST['email']);
+            $user->setPassword($_POST['password']);
+            
+        }
+    } catch (Throwable $e) {
+        $error = $e->getMessage();
+    }
+    }
+   
     $options = [
         'cost' => 12,
     ];
