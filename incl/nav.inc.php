@@ -1,6 +1,7 @@
 <?php
   // session_start();
-  $username = $_SESSION['username'];
+  session_start();
+  $_SESSION['user'];
 ?>
 <nav class="navbar">
     <!-- <a href="index.php" class="logo">IMDflix</a> -->
@@ -11,5 +12,5 @@
       <input type="text" name="search">
     </form>
     
-    <a href="logout.php" class="navbar__logout">Hi <?php echo $username ?>, logout?</a>
+    <a href="logout.php" class="navbar__logout">Hi <?php /*echo $username */?>, logout?</a>
 </nav>

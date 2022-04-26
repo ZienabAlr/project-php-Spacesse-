@@ -14,7 +14,7 @@ echo "Faheer ❤️";
 </head>
 
 <body>
-<?php include_once("nav.inc.php"); ?>
+<?php include_once("incl/nav.inc.php"); ?>
 </body>
 
 </html>
