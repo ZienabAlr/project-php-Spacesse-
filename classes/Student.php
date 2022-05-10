@@ -26,7 +26,7 @@ class Student extends User
 
     public function can_login()
     {
-
+        //12345
         $conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
         $statement = $conn->prepare("SELECT * FROM user WHERE email= :email");
         $statement->bindValue("email", $this->email);
