@@ -1,7 +1,7 @@
 <?php
   // session_start();
   session_start();
-  $_SESSION['user'];
+  // $_SESSION['user'];
 ?>
 <nav class="navbar">
     <!-- <a href="index.php" class="logo">IMDflix</a> -->
