@@ -8,7 +8,8 @@ class Student extends User
     public function can_signup($username, $email, $password)
     {
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
+            //$conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
+            $conn = Db::getConnection();
             $statement = $conn->prepare("INSERT INTO user (username, email, password) VALUES (:username, :email, :password)");
             $statement->bindValue("username", $username);
             $statement->bindValue("email", $email);
@@ -27,7 +28,8 @@ class Student extends User
     public function can_login()
     {
         //12345
-        $conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
+       // $conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
+        $conn = Db::getConnection();
         $statement = $conn->prepare("SELECT * FROM user WHERE email= :email");
         $statement->bindValue("email", $this->email);
         $statement->execute();

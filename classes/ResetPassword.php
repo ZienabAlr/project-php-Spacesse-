@@ -91,19 +91,20 @@
 
     }
 
-    /*public function checkLink(){
-        $curDate = date("Y-m-d H:i:s");
-        // Check in de database of de link correct is
-        $stat = $conn ->prepare("SELECT * FROM reset_password WHERE email = ?");
-        $stat->execute([$_SESSION['email']]);
-        $from_reset = $stat->fetch();
-        $expireDate= $from_reset['expDate'];
+    public function checkLink(){
 
-    }*/
+        $statement = $conn->prepare("SELECT * FROM reset_password WHERE email= :email");
+        $statement->bindValue("email", $this->email);
+        $statement->execute();
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        //$expireDate= $user['expDate'];
+        
+
+    }
 
     public function newPassword(){
 
-        include_once("bootstrap.php");
+       /* include_once("bootstrap.php");
 
         $conn = Db::getConnection();
         session_start();
@@ -130,9 +131,9 @@
             }if($error!=""){
                 echo "<div class='error'>".$error."</div><br />";
                 }			
-        }
+        }*/
         
-        if(isset($_POST['reset'])){
+        /*if(isset($_POST['reset'])){
         $newPassword = $_POST['new_pass'];
         $confirmPassword = $_POST['new_pass_conf'];
 
@@ -160,8 +161,20 @@
          }
 
 
-    }
+    }*/
 
+        $updatedPassword= new ResetPassword;
+        $newPassword =  $updatedPassword->getNewPassword();
+        $confirmPassword = $updatedPassword->getConfPassword();
+        if( $newPassword ==  $confirmPassword){
+            $statement = $conn->prepare("UPDATE test SET password = ? WHERE email = ?");
+            $statement->execute([$hashed_password, $email]);
+
+            $msg = 'Successfully updated your password! <a class="btn btn-success" href="http://localhost:8888/test 2/login.php"> >>Log In</a>';
+
+            session_destroy();
+            //   var_dump($statement($hashed_password, $email));
+        }
 
 
 

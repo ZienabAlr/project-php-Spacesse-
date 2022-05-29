@@ -1,9 +1,52 @@
 <?php
 include_once("bootstrap.php");
 $conn = Db::getConnection();
+session_start();
 
-$newPass= new ResetPassword(); 
-$newPass->newPassword();
+$error="";
+if(isset($_GET['email']) && isset($_GET['token'])){
+    $_SESSION['email'] = $_GET['email'];
+    $token = $_GET['token'];
+
+    $curDate = date("Y-m-d H:i:s");
+
+    $expire= new User();
+    $expireDate= $user->getExpire(); 
+    if ( $expireDate >= $curDate){
+        $valid = true; 
+        
+    }else{
+    
+        $error .= "<h2>Link Expired</h2>
+        <p>The link is expired. You are trying to use the expired link which 
+        as valid only 24 hours (1 days after request).<br /><br /></p>";
+    }if($error!=""){
+        echo "<div class='error'>".$error."</div><br />";
+    }			
+
+    $checkLink= new ResetPassword; 
+    $checkLink->checkLink();
+    
+
+}
+
+if(isset($_POST['reset'])){
+    $password= new User;
+    $newPassword = $password->setNewPassword($_POST['new_pass']);
+    $confirmPassword = $password->setConfPassword($_POST['new_pass_conf']) ;
+
+    if($newPassword !== $confirmPassword){
+        $error = 'Passwords do not match!';
+    }else {
+        $updatedPass= new ResetPassword;
+        $updatedPass->newPassword();
+    }
+
+}
+
+
+//$newPass= new ResetPassword(); 
+//$newPass->newPassword();
 
 /*include_once("bootstrap.php");
 $conn = Db::getConnection();

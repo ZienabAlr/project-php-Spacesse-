@@ -8,6 +8,8 @@ class User
         protected $password;
         protected $expire;
         protected $token; 
+        protected $newPassword; 
+        protected $confirmPassword
 
 
         public function setUsername($username)
@@ -86,5 +88,25 @@ class User
 
         public function getToken(){
                 return $this->token;
+        }
+
+        public function setNewPassword($newPassword) {
+
+                $this->newPassword = $newPassword;
+                return $this;
+        }
+
+        public function getNewPassword(){
+                return $this->newPassword;
+        }
+
+        public function setConfPassword($confirmPassword) {
+
+                $this->confirmPassword = $confirmPassword;
+                return $this;
+        }
+
+        public function getConfPassword(){
+                return $this->confirmPassword;
         }
 }
