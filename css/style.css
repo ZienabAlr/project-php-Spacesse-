@@ -35,13 +35,11 @@ body {
   margin-bottom: 17px;
 }
 
-
 .warning p {
   color: red;
 }
 
-
-#inputContainer .login{
+#inputContainer .login {
   text-align: right;
 }
 
@@ -71,6 +69,17 @@ body {
   transition: 0.5s;
   z-index: 0;
 }
+.photolabel {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  background-color: white;
+  color: #dadce0;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
 
 ::placeholder {
   color: transparent;
@@ -78,7 +87,7 @@ body {
 
 #submitBtn {
   display: block;
-  margin-left: auto;
+  /*margin-left: auto;*/
   padding: 15px 30px;
   border: none;
   background-color: purple;
@@ -92,6 +101,7 @@ body {
 #submitBtn:hover {
   background-color: #9867c5;
 }
+
 .input:focus + .label {
   top: -7px;
   left: 3px;
@@ -113,6 +123,104 @@ body {
   border: 2px solid purple;
 }
 
-#noAccount h4{
+#noAccount h4 {
   text-align: center;
+}
+.p_wrapper {
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: 0 5px #9867c5;
+  background-color: antiquewhite;
+}
+
+/* Profile page */
+#inputBox .box {
+  background-color: lightpink;
+  color: #9867c5;
+}
+#UpBtn {
+  background-color: #9867c5;
+  color: white;
+  width: 50%;
+  border-radius: 6px;
+  border: none;
+  padding: 10px 30px;
+  display: block;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 10px;
+}
+#UpBtn:hover {
+  background-color: green;
+}
+#C_Btn {
+  background-color: black;
+  color: white;
+  width: 50%;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 30px;
+  display: block;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 10px;
+}
+#C_Btn:hover {
+  background-color: white;
+  color: #9867c5;
+  border: 2px solid #9867c5;
+}
+.update-profile form .flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.update-profile form .flex .inputBox {
+  width: 49%;
+}
+
+.update-profile form .flex .inputBox span {
+  text-align: left;
+  display: block;
+  margin-top: 15px;
+  font-size: 17px;
+  color: var(--black);
+}
+
+.update-profile form .flex .inputBox .box {
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--light-bg);
+  padding: 12px 14px;
+  font-size: 17px;
+  color: var(--black);
+  margin-top: 10px;
+}
+.p_title {
+  text-align: center;
+  text-decoration: none;
+}
+#profileDisplay {
+  display: block;
+  width: 50%;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 2px solid darkgray;
+  align-items: center;
+  justify-content: center;
+}
+.form-group {
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
 }
