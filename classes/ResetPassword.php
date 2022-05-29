@@ -1,11 +1,11 @@
 <?php
     
-    /*use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
     require 'PHPMailer/src/Exception.php';
     require 'PHPMailer/src/PHPMailer.php';
-    require 'PHPMailer/src/SMTP.php';*/
+    require 'PHPMailer/src/SMTP.php';
     
     class ResetPassword extends User{
        
@@ -16,34 +16,34 @@
     
         $query= $conn->prepare("SELECT * FROM test WHERE email= :email");
         $email = $query->bindValue("email", $this->email);
-        $query->execute();
+        $email1= $query->execute();
         $query->fetch(PDO::FETCH_ASSOC);
         $row= $query->rowCount();
               
         if($row==1){
 
             $query_exist= $conn->prepare("SELECT * FROM reset_password WHERE email= :email");
-            $email= $query_exist->bindValue("email", $this->email);
+            $query_exist->bindValue("email", $this->email);
             $query_exist->execute();
             $from_reset= $query_exist->fetch(PDO::FETCH_ASSOC);
 
                 $query_insert = $conn->prepare("INSERT INTO reset_password(email, token, expDate) VALUES (:email, :token, :expDate)");
-                $email= $query_insert->bindValue("email", $this->email);
+                 $query_insert->bindValue("email", $this->email);
                 $token= $query_insert->bindValue("token", $this->token);
                 $query_insert->bindValue("expDate", $this->expire);
                 return $query_insert->execute();
             if(!empty($from_reset)){    
                 // Already exist reseting attempt, switch to UPDATE the reset table instead
                 $query_insert = $conn->prepare("UPDATE reset_passwordt SET token = ? AND expDate =?  WHERE email = ?");
-                $email= $query_insert->bindValue("email", $this->email);
+                $query_insert->bindValue("email", $this->email);
                 $token= $query_insert->bindValue("token", $this->token);
                 $query_insert->bindValue("expDate", $this->expire);
                 return  $query_insert->execute();
             }
 
-           /* $mail = new PHPMailer(true);
+            $mail = new PHPMailer(true);
 
-            $link='href="http://localhost:8888/test 2/new_pass.php?email='.$this->email.'&token='.$this->token.'"';
+            $link='href="http://localhost:8888/test 2/new_pass.php?email='.$email.'&token='.$token.'"';
             $link2 = '<span style="width:100%;"><a style="padding:10px 100px;border-radius:30px;background:#a8edbc;" '.$link.' > Link </a></span>';
 
             try {
@@ -59,17 +59,19 @@
 
                 //Recipients
                 $mail->setFrom('from@example.com', 'Spacesse');
-               // $mail->addAddress($email);     //Add a recipient
-               $mail->addAddress($this->email); 
+                $mail->addAddress($email1);     //Add a recipient
+               //$mail->addAddress($this->email); 
+               //$mail->addAddress('r0784494@student.thomasmore.be');
                 $mail->addReplyTo('no-reply@spacesse.com', 'No reply');
 
 
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'Reset your password';
-                // $mail->Body    = ' <p>Dear '.$email.',</p>
-                $mail->Body    = ' <p>Dear '.$this->email.',</p>
-      
+                 //$mail->Body    = ' <p>Dear '.$this->email.',</p>
+                $mail->Body    = ' <p>Dear '.$email.',</p>
+               
+
                 <p>Please click on this link to reset your password:</p> 
                 <p>'.$link2.'</p>
     
@@ -86,7 +88,7 @@
        
    
         }else {
-            $error = "Email does not exist!";*/
+            $error = "Email does not exist!";
         }
 
     }

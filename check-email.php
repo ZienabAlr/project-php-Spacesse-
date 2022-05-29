@@ -1,15 +1,16 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
+/*use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
+include_once("bootstrap.php");*/
 include_once("bootstrap.php");
-
+$conn = Db::getConnection();
 if (isset($_POST['send_link'])){
   
-  $conn = Db::getConnection();
+  
   $reset= new ResetPassword();
 
   $email= $reset->setEmail($_POST["email"]); 
@@ -24,61 +25,11 @@ if (isset($_POST['send_link'])){
 
         $expDate = date("Y-m-d H:i:s",$expFormat);
         $setExpDate= $reset->setExpire($expDate);
-
-        $mail = new PHPMailer(true);
-
-        $link='href="http://localhost:8888/project-php-Spacesse-/new_pass.php?email='.$email.'&token='. $setTok.'"';
-        //$link='href="http://localhost:8888/project-php-Spacesse-/new_pass.php?token='. $setTok.'"';
-        $link2 = '<span style="width:100%;"><a style="padding:10px 100px;border-radius:30px;background:#a8edbc;" '.$link.' > Link </a></span>';
-
-        try {
-            //Server settings
-            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'ispacesse@gmail.com';                     //SMTP username
-            $mail->Password   = ' sp-Project2 ';                               //SMTP password
-            $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-            //Recipients
-            $mail->setFrom('from@example.com', 'Spacesse');
-           // $mail->addAddress($email);     //Add a recipient
-           $mail->addAddress($email); 
-            $mail->addReplyTo('no-reply@spacesse.com', 'No reply');
-
-
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'Reset your password';
-            // $mail->Body    = ' <p>Dear '.$email.',</p>
-            $mail->Body    = ' <p>Dear '.$email.',</p>
   
-            <p>Please click on this link to reset your password:</p> 
-            <p>'.$link2.'</p>
-
-            Best wishes,
-            <br>
-            <span>Spacesse</span>
-            ';
-            $mail->send();
-            $msg = '<h4 class="text-success">Please check your email (including spam) to see the password reset link.</h4>';
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        }
-
         $reset->checkEmail();
 
-    }else {
-        $error = "Email does not exist!";
-    }
-
-  
-       
-
     // }
-//}
+}
 
 
 ?><!DOCTYPE html>

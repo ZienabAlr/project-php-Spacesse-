@@ -67,7 +67,7 @@ if(!empty($_POST)){
 
                 <div id="inputContainer">
                     <!-- <h4>Already have an account? -->
-                        <a href="reset-password.php" class="login">Forgot your password?</a></h4>
+                    <a href="check-email.php" class="login">Forgot your password?</a>
                 </div>
 
 
