@@ -6,6 +6,8 @@ class User
         protected $username;
         protected $email;
         protected $password;
+        protected $expire;
+        protected $token; 
 
 
         public function setUsername($username)
@@ -64,5 +66,27 @@ class User
                 }
                 $this->password = $password;
                 return $this;
+        }
+
+        public function setExpire($expire) {
+
+                $this->expire = $expire;
+                return $this;
+        }
+    
+        
+        
+        public function getExpire(){
+                return $this->expire;
+        }
+
+        public function setToken($token) {
+
+                $this->token = $token;
+                return $this;
+        }
+
+        public function getToken(){
+                return $this->token;
         }
 }
