@@ -2,7 +2,7 @@
 
 
 include_once("bootstrap.php");
- 
+$conn = Db::getConnection();
 
 if(!empty($_POST)){
 
