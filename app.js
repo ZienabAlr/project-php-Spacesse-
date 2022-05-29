@@ -4,43 +4,26 @@ document.querySelector("#like").addEventListener("click", function(e){
     console.log("we are liking ");
     e.preventDefault();
 
-
-    // let postId = this.data.postId;
     let postId=e.target.dataset.postid;
     console.log(postId);
 
-
-    // post naar database (AJAX)
-    // json zit puur in javascript en json kent geen php variabelen 
-    // fetch biedt een jevescript-interface voor de toegeng tot http en het manipuleren van 
-    // van delen  van de HTTP HTTP-pijplijn, zoals verzoeken en antwoorden. Het biedt ook een 
-    //globale fetch()-methode die een gemakkelijke, logische manier biedt om bronnen asynchroon over het netwerk op te halen.
-    // Anynchronous het script stuurt een verzoek naar de server en zet de uitvoering voort zonder op het antwoord te wachten.
-    // De communicatie kan gebeuren met een timer (Gmail), wachten op een klik,
-    //delen van een webpagina bij te werken, zonder de hele pagina opnieuw laden.
-
-    const formData = new FormData();
+    let formData = new FormData();
         formData.append('postId', postId);
-        fetch("8888/project-php-Spacesse-/saveLike.php", {
+        fetch("ajax/saveLike.php", {
             method: 'POST',
             body: formData
             })
                 .then(response => response.json())
                 .then(result => {
                     console.log('Success:', result);
+                    document.querySelector("#like").innerHTML ="❤️You liked this";
+
                 })
                 .catch(error => {
                     console.error('Error:', error);
                 });
     
-    
-        // postid ?
-    
-        
-    
-    
-    
-        // antwoord ok? toon like
+
     
        
     });

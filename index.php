@@ -98,9 +98,7 @@ $posts = Post::show_post();
 							/>
 						</div>
 						<div>
-							<!-- <a herf="" class="like" data-post="1"> ❤️like </a> -->
-							<!-- <a href="" class="like" data-post="<?php echo $onePost['id']?>"> ❤️like </a> -->
-							<a id="like" data-postid="<?php echo $onePost['id']?>"> ❤️like </a>
+							<a href="" id="like" data-postid="<?php echo $onePost['id']?>"> ❤️like </a>
 						</div>
 
 						<div>
@@ -115,7 +113,7 @@ $posts = Post::show_post();
 			</form>
 		</div>
 	</div>			
-	<script src="js/app.js"></script>
+	<script src="app.js"></script>
 	
 </body>
 </html>
