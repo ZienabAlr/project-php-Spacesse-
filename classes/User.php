@@ -74,8 +74,6 @@ class User
                 return $this;
         }
     
-        
-        
         public function getExpire(){
                 return $this->expire;
         }
