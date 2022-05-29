@@ -1,11 +1,11 @@
 <?php
     
-    use PHPMailer\PHPMailer\PHPMailer;
+    /*use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
     require 'PHPMailer/src/Exception.php';
     require 'PHPMailer/src/PHPMailer.php';
-    require 'PHPMailer/src/SMTP.php';
+    require 'PHPMailer/src/SMTP.php';*/
     
     class ResetPassword extends User{
        
@@ -41,7 +41,7 @@
                 return  $query_insert->execute();
             }
 
-            $mail = new PHPMailer(true);
+           /* $mail = new PHPMailer(true);
 
             $link='href="http://localhost:8888/test 2/new_pass.php?email='.$this->email.'&token='.$this->token.'"';
             $link2 = '<span style="width:100%;"><a style="padding:10px 100px;border-radius:30px;background:#a8edbc;" '.$link.' > Link </a></span>';
@@ -86,7 +86,7 @@
        
    
         }else {
-            $error = "Email does not exist!";
+            $error = "Email does not exist!";*/
         }
 
     }
@@ -179,3 +179,4 @@
 
 
 }
+    }

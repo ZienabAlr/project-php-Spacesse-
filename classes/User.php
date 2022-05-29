@@ -9,7 +9,7 @@ class User
         protected $expire;
         protected $token; 
         protected $newPassword; 
-        protected $confirmPassword
+        protected $confirmPassword;
 
 
         public function setUsername($username)

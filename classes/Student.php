@@ -10,7 +10,7 @@ class Student extends User
         try {
             //$conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
             $conn = Db::getConnection();
-            $statement = $conn->prepare("INSERT INTO user (username, email, password) VALUES (:username, :email, :password)");
+            $statement = $conn->prepare("INSERT INTO test (username, email, password) VALUES (:username, :email, :password)");
             $statement->bindValue("username", $username);
             $statement->bindValue("email", $email);
             $options = [
@@ -30,7 +30,7 @@ class Student extends User
         //12345
        // $conn = new PDO("mysql:host=localhost;dbname=Website", "root", "root");
         $conn = Db::getConnection();
-        $statement = $conn->prepare("SELECT * FROM user WHERE email= :email");
+        $statement = $conn->prepare("SELECT * FROM test WHERE email= :email");
         $statement->bindValue("email", $this->email);
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
