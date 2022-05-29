@@ -61,7 +61,7 @@ if(!empty($_POST)){
                 </div>
 
                 <div id="inputContainer">
-                    <input type="text" class="input" placeholder="a" name= "password">
+                    <input type="password" class="input" placeholder="a" name= "password">
                     <label for="" class="label">Password</label>
                 </div>
 
