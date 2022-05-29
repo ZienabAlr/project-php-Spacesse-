@@ -21,7 +21,7 @@ document.querySelector("#like").addEventListener("click", function(e){
 
     const formData = new FormData();
         formData.append('postId', postId);
-        fetch("localhost:8888/project-php-Spacesse-/saveLike.php", {
+        fetch("8888/project-php-Spacesse-/saveLike.php", {
             method: 'POST',
             body: formData
             })
