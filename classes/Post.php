@@ -1,7 +1,40 @@
 <?php 
 
-class Post extends User{
+class Post {
 
+    private $title;
+    private $description; 
+    private $image; 
+    
+    public function setTitle($title) {
+    
+        $this->title = $title;
+        return $this;
+    }
+    
+    public function getTitle(){
+        return $this->title;
+    }
+    
+    public function setDescription($description) {
+    
+        $this->description = $description;
+        return $this;
+    }
+    
+    public function getDescription(){
+        return $this->description;
+    }
+    
+    public function setImage($image) {
+    
+        $this->image = $image;
+        return $this;
+    }
+    
+    public function getImage(){
+        return $this->image;
+    }
     public function create_post(){
         
         $conn = Db::getConnection();

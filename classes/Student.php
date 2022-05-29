@@ -3,8 +3,6 @@
 class Student extends User
 {
 
-
-
     public function can_signup($username, $email, $password)
     {
         try {
