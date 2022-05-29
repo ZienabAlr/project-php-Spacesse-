@@ -96,7 +96,7 @@ $posts = Post::show_post();
 							/>
 						</div>
 						<div>
-							<a href="" id="like" data-postid="<?php echo $onePost['id']?>"> ❤️like </a>
+							<a href="" id="like" class ="like" data-postid="<?php echo $onePost['id']?>"> ❤️like </a>
 						</div>
 
 						<div>
